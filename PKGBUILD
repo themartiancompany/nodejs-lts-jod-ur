@@ -5,7 +5,7 @@
 
 pkgname=nodejs-lts-jod
 pkgver=22.14.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Evented I/O for V8 javascript ("Active LTS" release: Jod)'
 arch=(x86_64)
 url="https://nodejs.org/"
