@@ -1,7 +1,7 @@
 pkgbase = nodejs-lts-jod
 	pkgdesc = Evented I/O for V8 javascript ("Active LTS" release: Jod)
-	pkgver = 22.14.0
-	pkgrel = 2
+	pkgver = 22.15.1
+	pkgrel = 1
 	url = https://nodejs.org/
 	arch = x86_64
 	license = MIT
@@ -15,11 +15,11 @@ pkgbase = nodejs-lts-jod
 	depends = brotli
 	depends = libnghttp2
 	optdepends = npm: nodejs package manager
-	provides = nodejs=22.14.0
+	provides = nodejs=22.15.1
 	provides = nodejs-lts
 	conflicts = nodejs
 	options = !lto
-	source = https://nodejs.org/dist/v22.14.0/node-v22.14.0.tar.xz
-	sha256sums = c609946bf793b55c7954c26582760808d54c16185d79cb2fb88065e52de21914
+	source = https://nodejs.org/dist/v22.15.1/node-v22.15.1.tar.xz
+	sha256sums = c19f0177d21c621746625e5f37590bd0d79a72043b77b53784cba5f145e7263e
 
 pkgname = nodejs-lts-jod
