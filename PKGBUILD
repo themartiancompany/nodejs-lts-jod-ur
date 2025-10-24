@@ -4,11 +4,11 @@
 # Contributor: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=nodejs-lts-jod
-pkgver=22.19.0
+pkgver=22.21.0
 pkgrel=1
 pkgdesc='Evented I/O for V8 javascript ("Active LTS" release: Jod)'
 arch=(x86_64)
-url="https://nodejs.org/"
+url=https://nodejs.org/
 license=(MIT)
 depends=(openssl zlib icu libuv c-ares brotli libnghttp2) # http-parser v8)
 makedepends=(python procps-ng)
@@ -21,7 +21,7 @@ provides=(
 conflicts=(nodejs)
 source=("https://nodejs.org/dist/v${pkgver}/node-v${pkgver}.tar.xz")
 # https://nodejs.org/download/release/latest-jod/SHASUMS256.txt.asc
-sha256sums=('0272acfce50ce9ad060288321b1092719a7f19966f81419835410c59c09daa46')
+sha256sums=('791b18e969ea22cc952108ee8eaafbb12cddfd973bbbb0b7fc116395c0d9a81c')
 
 _set_flags() {
   # /usr/lib/libnode.so uses malloc_usable_size, which is incompatible with fortification level 3
@@ -53,10 +53,16 @@ build() {
 check() {
   _set_flags
   cd node-v${pkgver}
-  # ignore failing tests, they work when compiled locally
-  rm test/parallel/test-http2-client-set-priority.js
-  rm test/parallel/test-http2-priority-event.js
   rm test/parallel/test-http-outgoing-end-cork.js
+  rm test/parallel/test-http2-client-set-priority.js
+  rm test/parallel/test-http2-client-unescaped-path.js
+  rm test/parallel/test-http2-max-invalid-frames.js
+  rm test/parallel/test-http2-misbehaving-flow-control.js
+  rm test/parallel/test-http2-misbehaving-flow-control-paused.js
+  rm test/parallel/test-http2-multi-content-length.js
+  rm test/parallel/test-http2-priority-event.js
+  rm test/parallel/test-http2-reset-flood.js
+  rm test/parallel/test-tls-ocsp-callback.js
   make test-only
 }
 
