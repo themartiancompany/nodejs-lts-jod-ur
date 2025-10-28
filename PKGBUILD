@@ -1,5 +1,5 @@
 # Maintainer: Jelle van der Waa <jelle@archlinux.org>
-# Maintainer: Daniel M. Capella <polyzen@archlinux.org>
+# Contributor: Daniel M. Capella <polyzen@archlinux.org>
 # Contributor: Bruno Pagani <archange@archlinux.org>
 # Contributor: Felix Yan <felixonmars@archlinux.org>
 
