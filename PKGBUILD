@@ -58,7 +58,34 @@ if [[ ! -v "_evmfs" ]]; then
     _evmfs="false"
   fi
 fi
-_py="python"
+if [[ ! -v "_py" ]]; then
+  _py="python"
+  _pyver="$(
+    "${_py}" \
+      -V | \
+      awk \
+        '{print $2}' || \
+    true)"
+  if [[ "${_pyver}" == "" ]]; then
+    _msg=(
+      "Python needs to be installed"
+      "in order to build this package."
+    )
+    echo \
+      "${_msg[*]}"
+    exit \
+      1
+  fi
+  _pymajver="${_pyver%.*}"
+  _pyminver="${_pymajver#*.}"
+  _pynextver="${_pymajver%.*}.$((
+    ${_pyminver} + 1))"
+  if (( 13 < "${_pynextver}" )); then
+    _py_makedepend="${_py}<3.14"
+  else
+    _py_makedepend="${_py}3.13"
+  fi
+fi
 _pkg=nodejs
 _variant=lts-jod
 pkgname="${_pkg}-${_variant}"
@@ -87,7 +114,7 @@ depends=(
   "zlib"
 )
 makedepends=(
-  "${_py}"
+  "${_py_makedepend}"
   "procps-ng"
 )
 _npm_optdepends=(
