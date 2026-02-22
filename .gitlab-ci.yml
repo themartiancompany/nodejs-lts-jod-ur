@@ -177,7 +177,6 @@ build:
   after_script:
     - ./.gitlab/ci/upload.sh ${BUILD_SCRIPT_ARGS}
 
-
 release:
   artifacts:
     reports:
