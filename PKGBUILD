@@ -90,7 +90,7 @@ _pkg=nodejs
 _variant=lts-jod
 pkgname="${_pkg}-${_variant}"
 pkgver=22.22.0
-pkgrel=4
+pkgrel=5
 pkgdesc='Evented I/O for V8 javascript (LTS release: Jod)'
 arch=(
   "aarch64"
